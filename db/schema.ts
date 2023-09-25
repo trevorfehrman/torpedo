@@ -6,7 +6,7 @@ export const users = mysqlTable('user', {
   lastName: varchar('last_name', { length: 30 }).notNull(),
   createdAt: bigint('created_at', { mode: 'number' }),
   emailAddress: varchar('email_address', { length: 100 }).notNull(),
-  imageUrl: varchar('image_url', { length: 100 }).notNull(),
+  imageUrl: varchar('image_url', { length: 300 }).notNull(),
   username: varchar('username', { length: 60 }),
 });
 
