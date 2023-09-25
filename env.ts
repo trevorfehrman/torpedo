@@ -4,6 +4,11 @@ import { z } from 'zod';
 export const env = createEnv({
   server: {
     CLERK_SECRET_KEY: z.string(),
+    PLANETSCALE_DB_USERNAME: z.string(),
+    PLANETSCALE_DB_PASSWORD: z.string(),
+    PLANETSCALE_DB_URL: z.string(),
+    PLANETSCALE_DB_HOST: z.string(),
+    CLERK_WEBHOOK_SIGNING_SECRET: z.string(),
   },
   client: {
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string(),

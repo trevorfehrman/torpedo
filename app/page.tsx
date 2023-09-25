@@ -1,7 +1,8 @@
+import { db } from '@/db';
 import { UserButton } from '@clerk/nextjs';
-import Image from 'next/image';
 
 export default function Home() {
+  console.log(db);
   return (
     <main>
       <UserButton afterSignOutUrl='/' />
