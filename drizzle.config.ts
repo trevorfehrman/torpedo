@@ -7,7 +7,5 @@ export default {
   driver: 'mysql2',
   dbCredentials: {
     connectionString: env.PLANETSCALE_DB_URL,
-    user: env.PLANETSCALE_DB_USERNAME,
-    password: env.PLANETSCALE_DB_PASSWORD,
   },
 } satisfies Config;

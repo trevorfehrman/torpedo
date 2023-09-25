@@ -61,7 +61,7 @@ export async function POST(req: Request) {
       firstName: evt.data.first_name,
       lastName: evt.data.last_name,
       emailAddress: evt.data.email_addresses[0].email_address,
-      createdAt: Date.now(),
+      createdAt: new Date(),
       imageUrl: evt.data.image_url,
       username: evt.data.username ?? null,
     });
