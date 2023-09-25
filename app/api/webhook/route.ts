@@ -56,7 +56,7 @@ export async function POST(req: Request) {
   console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
   console.log('Webhook body:', body);
   if (eventType === 'user.created') {
-    db.insert(users).values({
+    await db.insert(users).values({
       id: evt.data.id,
       firstName: evt.data.first_name,
       lastName: evt.data.last_name,
