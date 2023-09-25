@@ -56,14 +56,25 @@ export async function POST(req: Request) {
   console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
   console.log('Webhook body:', body);
   if (eventType === 'user.created') {
+    // await db.insert(users).values({
+    //   id: evt.data.id,
+    //   firstName: evt.data.first_name,
+    //   lastName: evt.data.last_name,
+    //   createdAt: evt.data.created_at as unknown as Date,
+    //   emailAddress: evt.data.email_addresses[0].email_address,
+    //   imageUrl: evt.data.image_url,
+    //   username: evt.data.username,
+    // });
+    console.log(evt.data);
+
     await db.insert(users).values({
-      id: evt.data.id,
-      firstName: evt.data.first_name,
-      lastName: evt.data.last_name,
-      createdAt: evt.data.created_at as unknown as Date,
-      emailAddress: evt.data.email_addresses[0].email_address,
-      imageUrl: evt.data.image_url,
-      username: evt.data.username,
+      id: 'testing',
+      firstName: 'test first name',
+      lastName: 'test last name',
+      createdAt: new Date(),
+      emailAddress: 'test@email.com',
+      imageUrl: 'www.test.com',
+      username: 'www.test.com',
     });
   }
 
