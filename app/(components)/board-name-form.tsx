@@ -1,5 +1,6 @@
 'use client';
-import { submitBoardName } from '@/server-actions/submit-board-name';
+import * as React from 'react';
+import { submitBoardName } from '@/app/(server-actions)/submit-board-name';
 // @ts-ignore
 import { experimental_useFormState as useFormState } from 'react-dom';
 import { experimental_useFormStatus as useFormStatus } from 'react-dom';
@@ -18,9 +19,16 @@ function SubmitButton() {
 }
 
 export function BoardNameForm() {
+  const ref = React.useRef<HTMLFormElement>(null);
   const [state, formAction] = useFormState(submitBoardName, initialState);
   return (
-    <form action={formAction}>
+    <form
+      ref={ref}
+      action={async formData => {
+        ref.current?.reset();
+        await formAction(formData);
+      }}
+    >
       <label htmlFor='boardName'>Enter board name</label>
       <input type='text' id='boardName' name='boardName' required />
       <SubmitButton />
